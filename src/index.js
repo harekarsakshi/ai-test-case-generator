@@ -17,7 +17,6 @@ async function testcaseGenerator(input) {
   };
 
   var result = "";
-
   const response = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
     {
@@ -39,7 +38,6 @@ async function testcaseGenerator(input) {
   return result;
 }
 
-// get reference to all necessary DOM elements
 const inputField = document.getElementById("feature-input");
 const generateButton = document.getElementById("generate-button");
 const outputArea = document.getElementById("testcase-output");
@@ -51,7 +49,7 @@ var outputText = "";
 generateButton.addEventListener("click", async () => {
   inputText = inputField.value;
   outputText = await testcaseGenerator(inputText);
-  outputArea.textContent = outputText; 
+  outputArea.textContent = outputText;
 });
 
 copyButton.addEventListener("click", async () => {
